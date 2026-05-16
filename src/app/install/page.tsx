@@ -63,7 +63,7 @@ export default function InstallPage() {
               supported client on your machine and installs the skill into each.
             </Step>
             <div className="flex flex-col gap-3">
-              <CommandCopy command="npm i -g lustra" tone="onQuiet" />
+              <CommandCopy command="npm i -g lustra-cli" tone="onQuiet" />
               <CommandCopy command="lustra help" tone="onQuiet" />
             </div>
             <Step>

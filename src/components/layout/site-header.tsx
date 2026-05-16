@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu } from 'lucide-react'
 import {
@@ -21,9 +22,17 @@ const NAV = [
 ]
 
 function Wordmark() {
+  const pathname = usePathname()
+
   return (
     <Link
       href="/"
+      onClick={e => {
+        if (pathname === '/') {
+          e.preventDefault()
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+      }}
       className="font-display text-xl font-extrabold tracking-tight text-on-quiet"
     >
       lustra<span className="text-lime">.</span>

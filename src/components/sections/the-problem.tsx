@@ -1,29 +1,29 @@
 const FAILURES = [
   {
-    tag: "abstraction",
-    text: "Dead abstractions: an interface with one implementation, a factory that builds one thing.",
+    tag: 'abstraction',
+    text: 'Dead abstractions: an interface with one implementation, a factory that builds one thing.'
   },
   {
-    tag: "errors",
-    text: "Fake error handling: a try/catch that logs and rethrows, or worse, swallows.",
+    tag: 'errors',
+    text: 'Fake error handling: a try/catch that logs and rethrows, or worse, swallows.'
   },
   {
-    tag: "tests",
-    text: "Tests that run, go green, and assert nothing of consequence.",
+    tag: 'tests',
+    text: 'Tests that run, go green, and assert nothing of consequence.'
   },
   {
-    tag: "deps",
-    text: "Dependencies nobody imports, and one with a known CVE nobody noticed.",
+    tag: 'deps',
+    text: 'Dependencies nobody imports, and one with a known CVE nobody noticed.'
   },
   {
-    tag: "types",
-    text: "A type error made quiet with any instead of made correct.",
+    tag: 'types',
+    text: 'A type error made quiet with any instead of made correct.'
   },
   {
-    tag: "ci",
-    text: "A pipeline that is green because the gate never actually ran.",
-  },
-];
+    tag: 'ci',
+    text: 'A pipeline that is green because the gate never actually ran.'
+  }
+]
 
 export function TheProblem() {
   return (
@@ -41,7 +41,7 @@ export function TheProblem() {
           </div>
 
           <ul className="divide-y divide-on-quiet/10 border-y border-on-quiet/10">
-            {FAILURES.map((f) => (
+            {FAILURES.map(f => (
               <li
                 key={f.tag}
                 className="flex flex-col gap-2 py-5 sm:flex-row sm:gap-8"
@@ -58,5 +58,5 @@ export function TheProblem() {
         </div>
       </div>
     </section>
-  );
+  )
 }

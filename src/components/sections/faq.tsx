@@ -2,9 +2,9 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { FAQ } from "@/lib/content";
+  AccordionTrigger
+} from '@/components/ui/accordion'
+import { FAQ } from '@/lib/content'
 
 export function Faq() {
   return (
@@ -32,5 +32,5 @@ export function Faq() {
         </Accordion>
       </div>
     </section>
-  );
+  )
 }

@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { useState } from "react";
-import { Menu } from "lucide-react";
+import Link from 'next/link'
+import { useState } from 'react'
+import { Menu } from 'lucide-react'
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { REPO_URL } from "@/lib/content";
+  SheetTrigger
+} from '@/components/ui/sheet'
+import { REPO_URL } from '@/lib/content'
 
 const NAV = [
-  { label: "Manifesto", href: "/#manifesto" },
-  { label: "How it works", href: "/#how-it-works" },
-  { label: "Commands", href: "/commands" },
-  { label: "Install", href: "/install" },
-  { label: "FAQ", href: "/#faq" },
-];
+  { label: 'Manifesto', href: '/#manifesto' },
+  { label: 'How it works', href: '/#how-it-works' },
+  { label: 'Commands', href: '/commands' },
+  { label: 'Install', href: '/install' },
+  { label: 'FAQ', href: '/#faq' }
+]
 
 function Wordmark() {
   return (
@@ -28,11 +28,11 @@ function Wordmark() {
     >
       lustra<span className="text-lime">.</span>
     </Link>
-  );
+  )
 }
 
 export function SiteHeader() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 border-b border-on-quiet/10 bg-quiet/85 backdrop-blur supports-[backdrop-filter]:bg-quiet/70">
@@ -40,7 +40,7 @@ export function SiteHeader() {
         <Wordmark />
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV.map((item) => (
+          {NAV.map(item => (
             <Link
               key={item.href}
               href={item.href}
@@ -75,7 +75,7 @@ export function SiteHeader() {
                 lustra<span className="text-lime">.</span>
               </SheetTitle>
               <nav className="flex flex-col gap-1 px-3 py-4">
-                {NAV.map((item) => (
+                {NAV.map(item => (
                   <SheetClose
                     key={item.href}
                     render={
@@ -102,5 +102,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  );
+  )
 }

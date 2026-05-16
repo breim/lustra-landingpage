@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { AUTHOR, REPO_URL } from "@/lib/content";
+import Link from 'next/link'
+import { AUTHOR, REPO_URL } from '@/lib/content'
 
 export function SiteFooter() {
   return (
@@ -31,10 +31,7 @@ export function SiteFooter() {
           >
             Install
           </Link>
-          <Link
-            href="/#faq"
-            className="text-on-quiet/65 hover:text-on-quiet"
-          >
+          <Link href="/#faq" className="text-on-quiet/65 hover:text-on-quiet">
             FAQ
           </Link>
         </nav>
@@ -66,7 +63,7 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-on-quiet/40 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <span>MIT licensed. Free and open source.</span>
           <span>
-            Built by{" "}
+            Built by{' '}
             <a
               href={REPO_URL}
               target="_blank"
@@ -79,5 +76,5 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

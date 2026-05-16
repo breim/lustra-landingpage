@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { LIFECYCLE, commandsByGroup } from "@/lib/content";
+import Link from 'next/link'
+import { LIFECYCLE, commandsByGroup } from '@/lib/content'
 
 export function Lifecycle() {
   return (
@@ -15,11 +15,8 @@ export function Lifecycle() {
         </div>
 
         <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-on-surface/20 bg-on-surface/20 md:grid-cols-2 xl:grid-cols-4">
-          {LIFECYCLE.map((phase) => (
-            <div
-              key={phase.id}
-              className="flex flex-col bg-surface p-7 sm:p-8"
-            >
+          {LIFECYCLE.map(phase => (
+            <div key={phase.id} className="flex flex-col bg-surface p-7 sm:p-8">
               <span className="font-mono text-xs uppercase tracking-widest text-on-surface/50">
                 {phase.kicker}
               </span>
@@ -30,7 +27,7 @@ export function Lifecycle() {
                 &ldquo;{phase.question}&rdquo;
               </p>
               <ul className="mt-6 flex flex-wrap gap-2">
-                {commandsByGroup(phase.id).map((cmd) => (
+                {commandsByGroup(phase.id).map(cmd => (
                   <li key={cmd.slug}>
                     <Link
                       href={`/commands#${cmd.slug}`}
@@ -46,5 +43,5 @@ export function Lifecycle() {
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { LIFECYCLE, commandsByGroup } from "@/lib/content";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { LIFECYCLE, commandsByGroup } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: "Commands",
+  title: 'Commands',
   description:
-    "All 15 Lustra commands, grouped by lifecycle. Each wraps real tooling and applies judgment on top.",
-  alternates: { canonical: "/commands" },
-};
+    'All 15 Lustra commands, grouped by lifecycle. Each wraps real tooling and applies judgment on top.',
+  alternates: { canonical: '/commands' }
+}
 
 export default function CommandsPage() {
   return (
@@ -27,7 +27,7 @@ export default function CommandsPage() {
         </header>
 
         <nav className="mt-12 flex flex-wrap gap-2">
-          {LIFECYCLE.map((phase) => (
+          {LIFECYCLE.map(phase => (
             <a
               key={phase.id}
               href={`#${phase.id}`}
@@ -39,7 +39,7 @@ export default function CommandsPage() {
         </nav>
 
         <div className="mt-20 flex flex-col gap-24">
-          {LIFECYCLE.map((phase) => (
+          {LIFECYCLE.map(phase => (
             <section key={phase.id} id={phase.id} className="scroll-mt-24">
               <div className="flex flex-col gap-1 border-b border-on-quiet/12 pb-6">
                 <span className="font-mono text-xs uppercase tracking-widest text-lime/70">
@@ -54,7 +54,7 @@ export default function CommandsPage() {
               </div>
 
               <div className="mt-10 flex flex-col">
-                {commandsByGroup(phase.id).map((cmd) => (
+                {commandsByGroup(phase.id).map(cmd => (
                   <article
                     key={cmd.slug}
                     id={cmd.slug}
@@ -88,5 +88,5 @@ export default function CommandsPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

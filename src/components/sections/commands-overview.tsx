@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { COMMANDS } from "@/lib/content";
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { COMMANDS } from '@/lib/content'
 
 export function CommandsOverview() {
   return (
@@ -25,7 +25,7 @@ export function CommandsOverview() {
         </div>
 
         <ul className="mt-14 grid gap-px overflow-hidden rounded-lg border border-on-quiet/12 bg-on-quiet/12 sm:grid-cols-2 lg:grid-cols-3">
-          {COMMANDS.map((cmd) => (
+          {COMMANDS.map(cmd => (
             <li key={cmd.slug} className="bg-quiet">
               <Link
                 href={`/commands#${cmd.slug}`}
@@ -43,5 +43,5 @@ export function CommandsOverview() {
         </ul>
       </div>
     </section>
-  );
+  )
 }

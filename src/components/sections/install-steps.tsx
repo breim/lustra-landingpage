@@ -1,6 +1,6 @@
-import { Cta } from "@/components/cta";
-import { CommandCopy } from "@/components/command-copy";
-import { CLIENTS, INSTALL_CMD } from "@/lib/content";
+import { Cta } from '@/components/cta'
+import { CommandCopy } from '@/components/command-copy'
+import { CLIENTS, INSTALL_CMD } from '@/lib/content'
 
 export function InstallSteps() {
   return (
@@ -21,7 +21,10 @@ export function InstallSteps() {
 
             <div className="mt-8 flex flex-col gap-3">
               <CommandCopy command={INSTALL_CMD} tone="onLime" />
-              <CommandCopy command="npm i -g lustra && lustra help" tone="onLime" />
+              <CommandCopy
+                command="npm i -g lustra && lustra help"
+                tone="onLime"
+              />
             </div>
 
             <div className="mt-8">
@@ -36,7 +39,7 @@ export function InstallSteps() {
               Auto-detected harnesses
             </p>
             <ul className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-2">
-              {CLIENTS.map((c) => (
+              {CLIENTS.map(c => (
                 <li
                   key={c.name}
                   className="flex items-baseline justify-between gap-3 border-b border-on-surface/15 py-2"
@@ -52,5 +55,5 @@ export function InstallSteps() {
         </div>
       </div>
     </section>
-  );
+  )
 }

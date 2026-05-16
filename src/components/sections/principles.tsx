@@ -1,21 +1,21 @@
 const PRINCIPLES = [
   {
-    title: "Surgical, not bulk",
-    body: "It touches only what the command targeted. No drive-by refactors riding along with a lint fix.",
+    title: 'Surgical, not bulk',
+    body: 'It touches only what the command targeted. No drive-by refactors riding along with a lint fix.'
   },
   {
-    title: "Confirm before it cuts",
-    body: "Deleting code or a dependency is proposed and confirmed, never silently decided.",
+    title: 'Confirm before it cuts',
+    body: 'Deleting code or a dependency is proposed and confirmed, never silently decided.'
   },
   {
-    title: "Honest when blind",
-    body: "If a tool is missing, it says so instead of pretending the scan was complete.",
+    title: 'Honest when blind',
+    body: 'If a tool is missing, it says so instead of pretending the scan was complete.'
   },
   {
-    title: "Runs on your machine",
-    body: "A skill inside your existing harness, invoking local tooling. No service, nothing uploaded.",
-  },
-];
+    title: 'Runs on your machine',
+    body: 'A skill inside your existing harness, invoking local tooling. No service, nothing uploaded.'
+  }
+]
 
 export function Principles() {
   return (
@@ -25,7 +25,7 @@ export function Principles() {
           The rules it operates under.
         </h2>
         <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2">
-          {PRINCIPLES.map((p) => (
+          {PRINCIPLES.map(p => (
             <div key={p.title} className="border-t border-on-quiet/15 pt-5">
               <h3 className="text-lg font-semibold tracking-tight">
                 {p.title}
@@ -38,5 +38,5 @@ export function Principles() {
         </div>
       </div>
     </section>
-  );
+  )
 }

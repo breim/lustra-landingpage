@@ -1,64 +1,68 @@
-import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { AUTHOR, SITE_URL } from "@/lib/content";
+import type { Metadata, Viewport } from 'next'
+import {
+  Bricolage_Grotesque,
+  Hanken_Grotesk,
+  Geist_Mono
+} from 'next/font/google'
+import './globals.css'
+import { SiteHeader } from '@/components/layout/site-header'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { AUTHOR, SITE_URL } from '@/lib/content'
 
 const display = Bricolage_Grotesque({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-});
+  variable: '--font-display',
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 const body = Hanken_Grotesk({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-});
+  variable: '--font-body',
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 const mono = Geist_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+  variable: '--font-mono',
+  subsets: ['latin'],
+  display: 'swap'
+})
 
-const TITLE = "Lustra — make your AI clean up its own slop";
+const TITLE = 'Lustra — make your AI clean up its own slop'
 const DESCRIPTION =
-  "The code-hygiene skill for AI coding agents. It runs the real tooling, then applies judgment: filters false positives, ranks by real risk, fixes only what is mechanically safe.";
+  'The code-hygiene skill for AI coding agents. It runs the real tooling, then applies judgment: filters false positives, ranks by real risk, fixes only what is mechanically safe.'
 const SOCIAL_DESCRIPTION =
-  "AI writes code that runs, looks fine, and is quietly wrong. Lustra runs the real tools and applies judgment.";
+  'AI writes code that runs, looks fine, and is quietly wrong. Lustra runs the real tools and applies judgment.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s — Lustra",
+    template: '%s — Lustra'
   },
   description: DESCRIPTION,
-  applicationName: "Lustra",
+  applicationName: 'Lustra',
   keywords: [
-    "AI code review",
-    "code hygiene",
-    "AI slop",
-    "Claude Code",
-    "Cursor",
-    "dead code",
-    "security audit",
-    "code quality",
-    "AI coding agent",
+    'AI code review',
+    'code hygiene',
+    'AI slop',
+    'Claude Code',
+    'Cursor',
+    'dead code',
+    'security audit',
+    'code quality',
+    'AI coding agent'
   ],
   authors: [{ name: AUTHOR }],
   creator: AUTHOR,
   publisher: AUTHOR,
-  category: "technology",
+  category: 'technology',
   alternates: {
-    canonical: "/",
+    canonical: '/'
   },
   formatDetection: {
     telephone: false,
     email: false,
-    address: false,
+    address: false
   },
   robots: {
     index: true,
@@ -66,35 +70,35 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
   },
   openGraph: {
     title: TITLE,
     description: SOCIAL_DESCRIPTION,
     url: SITE_URL,
-    siteName: "Lustra",
-    locale: "en_US",
-    type: "website",
+    siteName: 'Lustra',
+    locale: 'en_US',
+    type: 'website'
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: TITLE,
     description: SOCIAL_DESCRIPTION,
-    creator: "@breim",
-  },
-};
+    creator: '@breim'
+  }
+}
 
 export const viewport: Viewport = {
-  themeColor: "#c9f04a",
-  colorScheme: "dark",
-};
+  themeColor: '#c9f04a',
+  colorScheme: 'dark'
+}
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
@@ -107,5 +111,5 @@ export default function RootLayout({
         <SiteFooter />
       </body>
     </html>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import { ArrowUpRight } from "lucide-react";
-import { Cta } from "@/components/cta";
-import { CommandCopy } from "@/components/command-copy";
-import { INSTALL_CMD, REPO_URL } from "@/lib/content";
+import { ArrowUpRight } from 'lucide-react'
+import { Cta } from '@/components/cta'
+import { CommandCopy } from '@/components/command-copy'
+import { INSTALL_CMD, REPO_URL } from '@/lib/content'
 
 export function Hero() {
   return (
@@ -36,5 +36,5 @@ export function Hero() {
         </p>
       </div>
     </section>
-  );
+  )
 }

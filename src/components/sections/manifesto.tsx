@@ -27,5 +27,5 @@ export function Manifesto() {
         </p>
       </div>
     </section>
-  );
+  )
 }

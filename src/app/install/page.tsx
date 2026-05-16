@@ -1,22 +1,22 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CommandCopy } from "@/components/command-copy";
-import { CLIENTS } from "@/lib/content";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { CommandCopy } from '@/components/command-copy'
+import { CLIENTS } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: "Install",
+  title: 'Install',
   description:
-    "Install Lustra through the skills CLI, globally with npm, or into specific agent clients.",
-  alternates: { canonical: "/install" },
-};
+    'Install Lustra through the skills CLI, globally with npm, or into specific agent clients.',
+  alternates: { canonical: '/install' }
+}
 
 function Step({ children }: { children: React.ReactNode }) {
   return (
     <p className="mb-4 text-base leading-relaxed text-on-quiet/65">
       {children}
     </p>
-  );
+  )
 }
 
 export default function InstallPage() {
@@ -86,7 +86,7 @@ export default function InstallPage() {
               its own config directory.
             </Step>
             <ul className="mt-2 divide-y divide-on-quiet/10 border-y border-on-quiet/10">
-              {CLIENTS.map((c) => (
+              {CLIENTS.map(c => (
                 <li
                   key={c.name}
                   className="flex items-baseline justify-between gap-4 py-4"
@@ -111,5 +111,5 @@ export default function InstallPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

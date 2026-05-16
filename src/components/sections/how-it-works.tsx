@@ -1,20 +1,20 @@
 const STEPS = [
   {
-    n: "01",
-    title: "It runs the actual tools",
-    body: "npm audit, knip, eslint, tsc, your test runner, prettier, license-checker. Real output, not a guess about what a tool would say.",
+    n: '01',
+    title: 'It runs the actual tools',
+    body: 'npm audit, knip, eslint, tsc, your test runner, prettier, license-checker. Real output, not a guess about what a tool would say.'
   },
   {
-    n: "02",
-    title: "It triages the output",
-    body: "Filters false positives. Ranks by real risk, not severity theater. Separates what is mechanically safe from what needs a human.",
+    n: '02',
+    title: 'It triages the output',
+    body: 'Filters false positives. Ranks by real risk, not severity theater. Separates what is mechanically safe from what needs a human.'
   },
   {
-    n: "03",
-    title: "It fixes, or proposes",
-    body: "Auto-applies only the safe changes. Everything that needs judgment arrives as a reviewable diff. No silent scope creep.",
-  },
-];
+    n: '03',
+    title: 'It fixes, or proposes',
+    body: 'Auto-applies only the safe changes. Everything that needs judgment arrives as a reviewable diff. No silent scope creep.'
+  }
+]
 
 export function HowItWorks() {
   return (
@@ -29,7 +29,7 @@ export function HowItWorks() {
         </h2>
 
         <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-on-quiet/12 bg-on-quiet/12 md:grid-cols-3">
-          {STEPS.map((s) => (
+          {STEPS.map(s => (
             <div key={s.n} className="bg-quiet p-8 sm:p-10">
               <span className="font-display text-5xl font-extrabold text-lime/30">
                 {s.n}
@@ -45,5 +45,5 @@ export function HowItWorks() {
         </div>
       </div>
     </section>
-  );
+  )
 }

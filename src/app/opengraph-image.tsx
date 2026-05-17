@@ -39,7 +39,7 @@ export default async function OpengraphImage() {
           opacity: 0.7
         }}
       >
-        A code-hygiene skill for AI coding agents
+        An engineering skill for AI coding harnesses
       </div>
 
       <div
@@ -66,7 +66,7 @@ export default async function OpengraphImage() {
         <span style={{ fontFamily: 'Bricolage', fontWeight: 800 }}>
           lustra.
         </span>
-        <span style={{ opacity: 0.6 }}>1 skill · 15 commands</span>
+        <span style={{ opacity: 0.6 }}>1 skill · 18 commands</span>
       </div>
     </div>,
     {

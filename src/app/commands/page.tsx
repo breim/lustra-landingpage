@@ -5,7 +5,7 @@ import { LIFECYCLE, commandsByGroup } from '@/lib/content'
 export const metadata: Metadata = {
   title: 'Commands',
   description:
-    'All 15 Lustra commands, grouped by lifecycle. Each wraps real tooling and applies judgment on top.',
+    'All 18 Lustra commands, grouped by lifecycle. Each wraps real tooling and applies judgment on top.',
   alternates: { canonical: '/commands' }
 }
 
@@ -18,7 +18,7 @@ export default function CommandsPage() {
             Reference
           </p>
           <h1 className="mt-5 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">
-            15 commands.
+            18 commands.
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-on-quiet/60">
             Grouped by where they belong in the lifecycle. Each runs the actual
@@ -31,7 +31,7 @@ export default function CommandsPage() {
             <a
               key={phase.id}
               href={`#${phase.id}`}
-              className="rounded-md border border-on-quiet/15 px-3 py-1.5 text-sm text-on-quiet/65 transition-colors hover:border-lime/50 hover:text-lime"
+              className="rounded-md border border-on-quiet/15 px-3 py-1.5 text-sm text-on-quiet/65 transition-colors hover:border-lime/50 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               {phase.label}
             </a>
@@ -81,7 +81,7 @@ export default function CommandsPage() {
         <div className="mt-20 border-t border-on-quiet/12 pt-10">
           <Link
             href="/install"
-            className="inline-flex items-center gap-2 text-base font-semibold text-lime hover:underline"
+            className="inline-flex items-center gap-2 rounded-sm text-base font-semibold text-lime hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             Install Lustra and run these &rarr;
           </Link>

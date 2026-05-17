@@ -9,6 +9,7 @@ import './globals.css'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { AUTHOR, SITE_URL } from '@/lib/content'
+import { fetchStarCount } from '@/lib/github-stars'
 
 const display = Bricolage_Grotesque({
   variable: '--font-display',
@@ -30,7 +31,7 @@ const mono = Geist_Mono({
 
 const TITLE = 'Lustra — make your AI clean up its own slop'
 const DESCRIPTION =
-  'The code-hygiene skill for AI coding agents. It runs the real tooling, then applies judgment: filters false positives, ranks by real risk, fixes only what is mechanically safe.'
+  'An engineering-discipline skill for AI coding harnesses. It runs the real tooling, then applies judgment: filters false positives, ranks by real risk, fixes only what is mechanically safe.'
 const SOCIAL_DESCRIPTION =
   'AI writes code that runs, looks fine, and is quietly wrong. Lustra runs the real tools and applies judgment.'
 
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     'dead code',
     'security audit',
     'code quality',
-    'AI coding agent'
+    'AI coding harness'
   ],
   authors: [{ name: AUTHOR }],
   creator: AUTHOR,
@@ -96,19 +97,29 @@ export const viewport: Viewport = {
   colorScheme: 'dark'
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const stars = await fetchStarCount()
+
   return (
     <html
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="bg-background text-foreground min-h-full flex flex-col font-sans">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-lime focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-on-surface"
+        >
+          Skip to main content
+        </a>
+        <SiteHeader stars={stars} />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <SiteFooter />
       </body>
       <GoogleAnalytics gaId="G-LN5JF5VQ5H" />

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 type CtaVariant = 'lime' | 'ink' | 'outline-quiet' | 'outline-surface'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-md text-sm font-semibold tracking-tight transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 active:translate-y-px'
+  'inline-flex items-center justify-center gap-2 rounded-md text-sm font-semibold tracking-tight transition-[color,background-color,border-color,opacity,filter,transform] duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 active:translate-y-px'
 
 const variants: Record<CtaVariant, string> = {
   // Lime button — for use on dark/quiet bands

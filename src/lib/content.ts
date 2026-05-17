@@ -1,4 +1,4 @@
-// Single source of truth. The 15 commands render in three places (landing
+// Single source of truth. The 18 commands render in three places (landing
 // overview, lifecycle bands, /commands page). Edit here, nowhere else.
 
 export const SITE_URL = 'https://lustra.sh'
@@ -6,6 +6,7 @@ export const REPO_URL = 'https://github.com/breim/lustra'
 export const INSTALL_CMD = 'npx skills add breim/lustra'
 export const AUTHOR = 'Henrique Breim'
 export const AUTHOR_URL = 'https://www.linkedin.com/in/henrique-breim/'
+export const AUTHOR_X_URL = 'https://x.com/_breim'
 
 export type LifecycleId = 'assess' | 'iterate' | 'polish' | 'maintain'
 
@@ -93,20 +94,20 @@ export const COMMANDS: Command[] = [
     example: '/lustra tests'
   },
   {
-    slug: 'lint',
+    slug: 'analyze',
     group: 'iterate',
-    title: 'lint',
+    title: 'analyze',
     blurb:
-      'ESLint findings plus the AI-slop smells no rule catches: dead abstractions, useless try/catch, impossible guards.',
-    example: '/lustra lint'
+      'Linter findings plus the AI-slop smells no rule catches: dead abstractions, useless try/catch, impossible guards.',
+    example: '/lustra analyze'
   },
   {
-    slug: 'prettier',
+    slug: 'format',
     group: 'iterate',
-    title: 'prettier',
+    title: 'format',
     blurb:
-      'Fix formatting drift. Mechanical, always safe, applied without asking.',
-    example: '/lustra prettier'
+      'Formatting drift, fixed mechanically with nothing else touched. Drifted files listed for approval, then written.',
+    example: '/lustra format'
   },
   {
     slug: 'security',
@@ -133,12 +134,28 @@ export const COMMANDS: Command[] = [
     example: '/lustra deadcode'
   },
   {
-    slug: 'libs',
+    slug: 'deps',
     group: 'polish',
-    title: 'libs',
+    title: 'deps',
     blurb:
-      'Dependency health: outdated, deprecated, duplicated, unused. Grouped Safe / Review / Major / Remove / Replace with a fix policy per group.',
-    example: '/lustra libs'
+      'Dependency health: outdated, deprecated, duplicated. Risk-ranked Safe / Review / Major / Replace, handing deletion to deadcode, vulnerabilities to security, and majors to migrate.',
+    example: '/lustra deps'
+  },
+  {
+    slug: 'design',
+    group: 'polish',
+    title: 'design',
+    blurb:
+      'Design quality of a module: god objects, leaky one-caller abstractions, import cycles, inverted dependencies. SOLID for OO stacks, cohesion and coupling for the rest.',
+    example: '/lustra design'
+  },
+  {
+    slug: 'observability',
+    group: 'polish',
+    title: 'observability',
+    blurb:
+      'Logging good enough to diagnose a production failure from the outside: swallowed errors, missing context, secrets in logs, uninstrumented critical paths.',
+    example: '/lustra observability'
   },
   {
     slug: 'perf',
@@ -154,6 +171,14 @@ export const COMMANDS: Command[] = [
     title: 'docs',
     blurb: 'Documentation drift and the public API surface nobody documented.',
     example: '/lustra docs'
+  },
+  {
+    slug: 'migrate',
+    group: 'maintain',
+    title: 'migrate',
+    blurb:
+      'One major dependency upgrade, isolated and verified. Reads the breaking changes, runs the codemod, applies as a single reviewable change, runs the suite.',
+    example: '/lustra migrate'
   },
   {
     slug: 'ci',
@@ -205,7 +230,7 @@ export const FAQ: Faq[] = [
   },
   {
     q: 'What does it fix automatically versus propose?',
-    a: 'It auto-applies only mechanically-safe changes, like formatting. Anything that needs judgment, such as deleting code or a dependency, is proposed as a diff and confirmed before it lands. No silent scope changes.'
+    a: 'Nothing is applied silently. Read-only detection runs on its own; every change, even mechanical formatting, is presented as an itemized checklist and applied only after you approve it. No silent scope changes.'
   },
   {
     q: 'Which agents does it work with?',

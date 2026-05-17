@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { AUTHOR, AUTHOR_URL, REPO_URL } from '@/lib/content'
+import { XIcon, LinkedInIcon } from '@/components/icons'
+import { AUTHOR, AUTHOR_URL, AUTHOR_X_URL, REPO_URL } from '@/lib/content'
 
 export function SiteFooter() {
   return (
@@ -21,17 +22,20 @@ export function SiteFooter() {
           </span>
           <Link
             href="/commands"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             Commands
           </Link>
           <Link
             href="/install"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             Install
           </Link>
-          <Link href="/#faq" className="text-on-quiet/65 hover:text-on-quiet">
+          <Link
+            href="/#faq"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
+          >
             FAQ
           </Link>
         </nav>
@@ -44,7 +48,7 @@ export function SiteFooter() {
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             GitHub
           </a>
@@ -52,7 +56,7 @@ export function SiteFooter() {
             href={`${REPO_URL}/blob/main/LICENSE`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             MIT License
           </a>
@@ -62,15 +66,33 @@ export function SiteFooter() {
       <div className="border-t border-on-quiet/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-on-quiet/40 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <span>MIT licensed. Free and open source.</span>
-          <span>
+          <span className="inline-flex items-center gap-2.5">
             Built by{' '}
             <a
               href={AUTHOR_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-on-quiet/60 hover:text-lime"
+              className="rounded-sm text-on-quiet/60 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               {AUTHOR}
+            </a>
+            <a
+              href={AUTHOR_X_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${AUTHOR} on X`}
+              className="rounded-sm text-on-quiet/60 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
+            >
+              <XIcon className="size-3.5" />
+            </a>
+            <a
+              href={AUTHOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${AUTHOR} on LinkedIn`}
+              className="rounded-sm text-on-quiet/60 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
+            >
+              <LinkedInIcon className="size-4" />
             </a>
           </span>
         </div>

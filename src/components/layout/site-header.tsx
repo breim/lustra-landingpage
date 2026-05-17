@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu } from 'lucide-react'
+import { Menu, Star } from 'lucide-react'
 import {
   Sheet,
   SheetClose,
@@ -11,7 +11,24 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet'
+import { GitHubIcon } from '@/components/icons'
 import { REPO_URL } from '@/lib/content'
+
+function GitHubStars({ stars }: { stars: number | null }) {
+  return (
+    <>
+      <GitHubIcon className="size-4" />
+      {stars !== null && (
+        <span className="inline-flex items-center gap-1">
+          <span className="text-base leading-none tabular-nums">
+            {stars.toLocaleString('en-US')}
+          </span>
+          <Star className="size-3.5" />
+        </span>
+      )}
+    </>
+  )
+}
 
 const NAV = [
   { label: 'Manifesto', href: '/#manifesto' },
@@ -30,17 +47,23 @@ function Wordmark() {
       onClick={e => {
         if (pathname === '/') {
           e.preventDefault()
-          window.scrollTo({ top: 0, behavior: 'smooth' })
+          const reduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+          ).matches
+          window.scrollTo({
+            top: 0,
+            behavior: reduceMotion ? 'auto' : 'smooth'
+          })
         }
       }}
-      className="font-display text-xl font-extrabold tracking-tight text-on-quiet"
+      className="rounded-sm font-display text-xl font-extrabold tracking-tight text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
     >
       lustra<span className="text-lime">.</span>
     </Link>
   )
 }
 
-export function SiteHeader() {
+export function SiteHeader({ stars }: { stars: number | null }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -53,7 +76,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-on-quiet/65 transition-colors hover:text-on-quiet"
+              className="rounded-sm text-sm font-medium text-on-quiet/65 transition-colors hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               {item.label}
             </Link>
@@ -62,9 +85,14 @@ export function SiteHeader() {
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md bg-lime px-4 py-2 text-sm font-semibold text-on-surface transition-all hover:brightness-95"
+            aria-label={
+              stars === null
+                ? 'GitHub repository'
+                : `GitHub repository, ${stars} stars`
+            }
+            className="inline-flex items-center gap-2 rounded-md bg-lime px-4 py-2 text-sm font-semibold text-on-surface transition-[filter] hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
-            GitHub
+            <GitHubStars stars={stars} />
           </a>
         </nav>
 
@@ -72,13 +100,13 @@ export function SiteHeader() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               aria-label="Open menu"
-              className="grid size-10 place-items-center rounded-md text-on-quiet/80 hover:bg-on-quiet/10"
+              className="grid size-10 place-items-center rounded-md text-on-quiet/80 hover:bg-on-quiet/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               <Menu className="size-5" />
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="border-on-quiet/10 bg-quiet text-on-quiet"
+              className="border-on-quiet/10 bg-quiet text-on-quiet overscroll-contain touch-manipulation"
             >
               <SheetTitle className="px-5 pt-5 font-display text-on-quiet">
                 lustra<span className="text-lime">.</span>
@@ -90,7 +118,7 @@ export function SiteHeader() {
                     render={
                       <Link
                         href={item.href}
-                        className="rounded-md px-3 py-3 text-lg font-medium text-on-quiet/75 hover:bg-on-quiet/10 hover:text-on-quiet"
+                        className="rounded-md px-3 py-3 text-lg font-medium text-on-quiet/75 hover:bg-on-quiet/10 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
                       />
                     }
                   >
@@ -101,9 +129,14 @@ export function SiteHeader() {
                   href={REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 rounded-md bg-lime px-3 py-3 text-center text-lg font-semibold text-on-surface"
+                  aria-label={
+                    stars === null
+                      ? 'GitHub repository'
+                      : `GitHub repository, ${stars} stars`
+                  }
+                  className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-lime px-3 py-3 text-lg font-semibold text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
                 >
-                  GitHub
+                  <GitHubStars stars={stars} />
                 </a>
               </nav>
             </SheetContent>

@@ -27,7 +27,7 @@ function homeMarkdown(): string {
   lines.push(`Repository: ${REPO_URL}`)
   lines.push('')
   lines.push(
-    '1 skill. 15 commands. From first commit to technical due diligence.'
+    '1 skill. 18 commands. From first commit to technical due diligence.'
   )
   lines.push('')
 
@@ -80,7 +80,7 @@ function commandsMarkdown(): string {
   lines.push('# Lustra commands')
   lines.push('')
   lines.push(
-    'One skill, 15 commands, grouped by where they fit in the lifecycle of a codebase.'
+    'One skill, 18 commands, grouped by where they fit in the lifecycle of a codebase.'
   )
   lines.push('')
 

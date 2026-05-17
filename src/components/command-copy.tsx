@@ -49,7 +49,7 @@ export function CommandCopy({
   return (
     <div
       className={cn(
-        'group inline-flex items-center gap-3 rounded-md border px-4 py-3 font-mono text-sm',
+        'group inline-flex max-w-full items-center gap-3 rounded-md border px-4 py-3 font-mono text-sm',
         t.wrap,
         className
       )}
@@ -57,18 +57,23 @@ export function CommandCopy({
       <span aria-hidden className={t.prompt}>
         $
       </span>
-      <code className={cn('select-all', t.cmd)}>{command}</code>
+      <code className={cn('min-w-0 break-all select-all', t.cmd)}>
+        {command}
+      </code>
       <button
         type="button"
         onClick={copy}
         aria-label={copied ? 'Copied' : 'Copy command'}
         className={cn(
-          'ml-1 grid size-7 place-items-center rounded transition-colors',
+          'ml-1 grid size-7 shrink-0 place-items-center rounded transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current',
           t.btn
         )}
       >
         {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
       </button>
+      <span role="status" aria-live="polite" className="sr-only">
+        {copied ? 'Copied' : ''}
+      </span>
     </div>
   )
 }

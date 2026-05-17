@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import {
   Bricolage_Grotesque,
   Hanken_Grotesk,
@@ -110,6 +111,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
       </body>
+      <GoogleAnalytics gaId="G-LN5JF5VQ5H" />
     </html>
   )
 }

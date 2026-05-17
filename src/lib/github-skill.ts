@@ -14,16 +14,19 @@ const FIXED_MTIME = new Date('1980-01-01T00:00:00Z')
 // changes only when a command is added/removed upstream. This is the single
 // maintenance point — keep in sync with breim/lustra skill/reference/.
 const REFERENCE_FILES = [
+  'analyze.md',
   'audit.md',
   'baseline.md',
   'ci.md',
   'deadcode.md',
+  'deps.md',
+  'design.md',
   'docs.md',
-  'libs.md',
+  'format.md',
   'license.md',
-  'lint.md',
+  'migrate.md',
+  'observability.md',
   'perf.md',
-  'prettier.md',
   'review.md',
   'security.md',
   'structure.md',
@@ -42,6 +45,24 @@ async function fetchRaw(path: string): Promise<string> {
   return res.text()
 }
 
+// Reference files drift upstream (renamed/removed) without this list being
+// updated. A 404 means the file is simply gone, so skip it rather than fail
+// the whole archive. Other failures (5xx, network) still throw — silently
+// dropping content on a transient error would corrupt the digest.
+async function fetchReference(name: string): Promise<string | null> {
+  const res = await fetch(`${RAW_BASE}/reference/${name}`, {
+    next: { revalidate: REVALIDATE_SECONDS }
+  })
+  if (res.status === 404) {
+    return null
+  }
+  if (!res.ok) {
+    throw new Error(`GitHub fetch failed for reference/${name}: ${res.status}`)
+  }
+
+  return res.text()
+}
+
 export async function fetchSkillMarkdown(): Promise<string> {
   return fetchRaw('SKILL.md')
 }
@@ -50,7 +71,7 @@ export async function buildSkillArchive(): Promise<Uint8Array> {
   const skillMd = await fetchSkillMarkdown()
   const references = await Promise.all(
     REFERENCE_FILES.map(
-      async name => [name, await fetchRaw(`reference/${name}`)] as const
+      async name => [name, await fetchReference(name)] as const
     )
   )
 
@@ -58,6 +79,8 @@ export async function buildSkillArchive(): Promise<Uint8Array> {
     'SKILL.md': [strToU8(skillMd), { mtime: FIXED_MTIME }]
   }
   for (const [name, content] of references) {
+    if (content === null) continue
+
     files[`reference/${name}`] = [strToU8(content), { mtime: FIXED_MTIME }]
   }
 

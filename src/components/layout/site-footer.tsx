@@ -22,17 +22,20 @@ export function SiteFooter() {
           </span>
           <Link
             href="/commands"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             Commands
           </Link>
           <Link
             href="/install"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             Install
           </Link>
-          <Link href="/#faq" className="text-on-quiet/65 hover:text-on-quiet">
+          <Link
+            href="/#faq"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
+          >
             FAQ
           </Link>
         </nav>
@@ -45,7 +48,7 @@ export function SiteFooter() {
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             GitHub
           </a>
@@ -53,7 +56,7 @@ export function SiteFooter() {
             href={`${REPO_URL}/blob/main/LICENSE`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-on-quiet/65 hover:text-on-quiet"
+            className="rounded-sm text-on-quiet/65 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             MIT License
           </a>
@@ -69,7 +72,7 @@ export function SiteFooter() {
               href={AUTHOR_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-on-quiet/60 hover:text-lime"
+              className="rounded-sm text-on-quiet/60 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               {AUTHOR}
             </a>
@@ -78,7 +81,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${AUTHOR} on X`}
-              className="text-on-quiet/60 hover:text-lime"
+              className="rounded-sm text-on-quiet/60 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               <XIcon className="size-3.5" />
             </a>
@@ -87,7 +90,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${AUTHOR} on LinkedIn`}
-              className="text-on-quiet/60 hover:text-lime"
+              className="rounded-sm text-on-quiet/60 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               <LinkedInIcon className="size-4" />
             </a>

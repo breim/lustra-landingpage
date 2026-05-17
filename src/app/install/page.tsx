@@ -108,7 +108,7 @@ export default function InstallPage() {
         <div className="mt-16 border-t border-on-quiet/12 pt-10">
           <Link
             href="/commands"
-            className="inline-flex items-center gap-2 text-base font-semibold text-lime hover:underline"
+            className="inline-flex items-center gap-2 rounded-sm text-base font-semibold text-lime hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             See all 18 commands &rarr;
           </Link>

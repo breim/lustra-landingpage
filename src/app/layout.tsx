@@ -110,8 +110,16 @@ export default async function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="bg-background text-foreground min-h-full flex flex-col font-sans">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-lime focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-on-surface"
+        >
+          Skip to main content
+        </a>
         <SiteHeader stars={stars} />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <SiteFooter />
       </body>
       <GoogleAnalytics gaId="G-LN5JF5VQ5H" />

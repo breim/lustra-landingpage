@@ -31,7 +31,7 @@ export default function CommandsPage() {
             <a
               key={phase.id}
               href={`#${phase.id}`}
-              className="rounded-md border border-on-quiet/15 px-3 py-1.5 text-sm text-on-quiet/65 transition-colors hover:border-lime/50 hover:text-lime"
+              className="rounded-md border border-on-quiet/15 px-3 py-1.5 text-sm text-on-quiet/65 transition-colors hover:border-lime/50 hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               {phase.label}
             </a>
@@ -81,7 +81,7 @@ export default function CommandsPage() {
         <div className="mt-20 border-t border-on-quiet/12 pt-10">
           <Link
             href="/install"
-            className="inline-flex items-center gap-2 text-base font-semibold text-lime hover:underline"
+            className="inline-flex items-center gap-2 rounded-sm text-base font-semibold text-lime hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             Install Lustra and run these &rarr;
           </Link>

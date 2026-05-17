@@ -47,10 +47,16 @@ function Wordmark() {
       onClick={e => {
         if (pathname === '/') {
           e.preventDefault()
-          window.scrollTo({ top: 0, behavior: 'smooth' })
+          const reduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+          ).matches
+          window.scrollTo({
+            top: 0,
+            behavior: reduceMotion ? 'auto' : 'smooth'
+          })
         }
       }}
-      className="font-display text-xl font-extrabold tracking-tight text-on-quiet"
+      className="rounded-sm font-display text-xl font-extrabold tracking-tight text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
     >
       lustra<span className="text-lime">.</span>
     </Link>
@@ -70,7 +76,7 @@ export function SiteHeader({ stars }: { stars: number | null }) {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-on-quiet/65 transition-colors hover:text-on-quiet"
+              className="rounded-sm text-sm font-medium text-on-quiet/65 transition-colors hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               {item.label}
             </Link>
@@ -84,7 +90,7 @@ export function SiteHeader({ stars }: { stars: number | null }) {
                 ? 'GitHub repository'
                 : `GitHub repository, ${stars} stars`
             }
-            className="inline-flex items-center gap-2 rounded-md bg-lime px-4 py-2 text-sm font-semibold text-on-surface transition-all hover:brightness-95"
+            className="inline-flex items-center gap-2 rounded-md bg-lime px-4 py-2 text-sm font-semibold text-on-surface transition-[filter] hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             <GitHubStars stars={stars} />
           </a>
@@ -94,13 +100,13 @@ export function SiteHeader({ stars }: { stars: number | null }) {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               aria-label="Open menu"
-              className="grid size-10 place-items-center rounded-md text-on-quiet/80 hover:bg-on-quiet/10"
+              className="grid size-10 place-items-center rounded-md text-on-quiet/80 hover:bg-on-quiet/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
             >
               <Menu className="size-5" />
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="border-on-quiet/10 bg-quiet text-on-quiet"
+              className="border-on-quiet/10 bg-quiet text-on-quiet overscroll-contain touch-manipulation"
             >
               <SheetTitle className="px-5 pt-5 font-display text-on-quiet">
                 lustra<span className="text-lime">.</span>
@@ -112,7 +118,7 @@ export function SiteHeader({ stars }: { stars: number | null }) {
                     render={
                       <Link
                         href={item.href}
-                        className="rounded-md px-3 py-3 text-lg font-medium text-on-quiet/75 hover:bg-on-quiet/10 hover:text-on-quiet"
+                        className="rounded-md px-3 py-3 text-lg font-medium text-on-quiet/75 hover:bg-on-quiet/10 hover:text-on-quiet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
                       />
                     }
                   >
@@ -128,7 +134,7 @@ export function SiteHeader({ stars }: { stars: number | null }) {
                       ? 'GitHub repository'
                       : `GitHub repository, ${stars} stars`
                   }
-                  className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-lime px-3 py-3 text-lg font-semibold text-on-surface"
+                  className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-lime px-3 py-3 text-lg font-semibold text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
                 >
                   <GitHubStars stars={stars} />
                 </a>

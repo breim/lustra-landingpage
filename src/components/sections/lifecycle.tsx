@@ -31,7 +31,7 @@ export function Lifecycle() {
                   <li key={cmd.slug}>
                     <Link
                       href={`/commands#${cmd.slug}`}
-                      className="inline-block rounded border border-on-surface/25 px-2.5 py-1 font-mono text-xs text-on-surface/80 transition-colors hover:border-on-surface/60 hover:bg-on-surface hover:text-lime"
+                      className="inline-block rounded border border-on-surface/25 px-2.5 py-1 font-mono text-xs text-on-surface/80 transition-colors hover:border-on-surface/60 hover:bg-on-surface hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface"
                     >
                       {cmd.slug}
                     </Link>

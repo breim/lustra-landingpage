@@ -17,7 +17,7 @@ export function CommandsOverview() {
           </div>
           <Link
             href="/commands"
-            className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-lime hover:underline"
+            className="inline-flex shrink-0 items-center gap-2 rounded-sm text-sm font-semibold text-lime hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-quiet"
           >
             Full reference
             <ArrowRight className="size-4" />
@@ -29,7 +29,7 @@ export function CommandsOverview() {
             <li key={cmd.slug} className="bg-quiet">
               <Link
                 href={`/commands#${cmd.slug}`}
-                className="group flex h-full flex-col p-6 transition-colors hover:bg-on-quiet/[0.03]"
+                className="group flex h-full flex-col p-6 transition-colors hover:bg-on-quiet/[0.03] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-on-quiet"
               >
                 <span className="font-mono text-sm font-semibold text-lime">
                   /lustra {cmd.slug}

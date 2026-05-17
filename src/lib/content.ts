@@ -5,6 +5,7 @@ export const SITE_URL = 'https://lustra.sh'
 export const REPO_URL = 'https://github.com/breim/lustra'
 export const INSTALL_CMD = 'npx skills add breim/lustra'
 export const AUTHOR = 'Henrique Breim'
+export const AUTHOR_URL = 'https://www.linkedin.com/in/henrique-breim/'
 
 export type LifecycleId = 'assess' | 'iterate' | 'polish' | 'maintain'
 

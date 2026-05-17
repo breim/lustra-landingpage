@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { AUTHOR, REPO_URL } from '@/lib/content'
+import { AUTHOR, AUTHOR_URL, REPO_URL } from '@/lib/content'
 
 export function SiteFooter() {
   return (
@@ -65,7 +65,7 @@ export function SiteFooter() {
           <span>
             Built by{' '}
             <a
-              href={REPO_URL}
+              href={AUTHOR_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-on-quiet/60 hover:text-lime"

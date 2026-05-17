@@ -5,7 +5,7 @@ import { LIFECYCLE, commandsByGroup } from '@/lib/content'
 export const metadata: Metadata = {
   title: 'Commands',
   description:
-    'All 15 Lustra commands, grouped by lifecycle. Each wraps real tooling and applies judgment on top.',
+    'All 18 Lustra commands, grouped by lifecycle. Each wraps real tooling and applies judgment on top.',
   alternates: { canonical: '/commands' }
 }
 
@@ -18,7 +18,7 @@ export default function CommandsPage() {
             Reference
           </p>
           <h1 className="mt-5 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">
-            15 commands.
+            18 commands.
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-on-quiet/60">
             Grouped by where they belong in the lifecycle. Each runs the actual

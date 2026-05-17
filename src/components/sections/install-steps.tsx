@@ -1,5 +1,6 @@
 import { Cta } from '@/components/cta'
 import { CommandCopy } from '@/components/command-copy'
+import { HarnessMonogram } from '@/components/icons'
 import { CLIENTS, INSTALL_CMD } from '@/lib/content'
 
 export function InstallSteps() {
@@ -42,9 +43,12 @@ export function InstallSteps() {
               {CLIENTS.map(c => (
                 <li
                   key={c.name}
-                  className="flex items-baseline justify-between gap-3 border-b border-on-surface/15 py-2"
+                  className="flex items-center justify-between gap-3 border-b border-on-surface/15 py-2"
                 >
-                  <span className="text-sm font-semibold">{c.name}</span>
+                  <span className="flex items-center gap-2.5">
+                    <HarnessMonogram name={c.name} />
+                    <span className="text-sm font-semibold">{c.name}</span>
+                  </span>
                   <span className="font-mono text-xs text-on-surface/55">
                     {c.configDir}
                   </span>

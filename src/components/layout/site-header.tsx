@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu } from 'lucide-react'
+import { Menu, Star } from 'lucide-react'
 import {
   Sheet,
   SheetClose,
@@ -11,7 +11,24 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet'
+import { GitHubIcon } from '@/components/icons'
 import { REPO_URL } from '@/lib/content'
+
+function GitHubStars({ stars }: { stars: number | null }) {
+  return (
+    <>
+      <GitHubIcon className="size-4" />
+      {stars !== null && (
+        <span className="inline-flex items-center gap-1">
+          <span className="text-base leading-none tabular-nums">
+            {stars.toLocaleString('en-US')}
+          </span>
+          <Star className="size-3.5" />
+        </span>
+      )}
+    </>
+  )
+}
 
 const NAV = [
   { label: 'Manifesto', href: '/#manifesto' },
@@ -40,7 +57,7 @@ function Wordmark() {
   )
 }
 
-export function SiteHeader() {
+export function SiteHeader({ stars }: { stars: number | null }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -62,9 +79,14 @@ export function SiteHeader() {
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md bg-lime px-4 py-2 text-sm font-semibold text-on-surface transition-all hover:brightness-95"
+            aria-label={
+              stars === null
+                ? 'GitHub repository'
+                : `GitHub repository, ${stars} stars`
+            }
+            className="inline-flex items-center gap-2 rounded-md bg-lime px-4 py-2 text-sm font-semibold text-on-surface transition-all hover:brightness-95"
           >
-            GitHub
+            <GitHubStars stars={stars} />
           </a>
         </nav>
 
@@ -101,9 +123,14 @@ export function SiteHeader() {
                   href={REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 rounded-md bg-lime px-3 py-3 text-center text-lg font-semibold text-on-surface"
+                  aria-label={
+                    stars === null
+                      ? 'GitHub repository'
+                      : `GitHub repository, ${stars} stars`
+                  }
+                  className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-lime px-3 py-3 text-lg font-semibold text-on-surface"
                 >
-                  GitHub
+                  <GitHubStars stars={stars} />
                 </a>
               </nav>
             </SheetContent>

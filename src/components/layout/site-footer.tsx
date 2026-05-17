@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { AUTHOR, AUTHOR_URL, REPO_URL } from '@/lib/content'
+import { XIcon, LinkedInIcon } from '@/components/icons'
+import { AUTHOR, AUTHOR_URL, AUTHOR_X_URL, REPO_URL } from '@/lib/content'
 
 export function SiteFooter() {
   return (
@@ -62,7 +63,7 @@ export function SiteFooter() {
       <div className="border-t border-on-quiet/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-on-quiet/40 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <span>MIT licensed. Free and open source.</span>
-          <span>
+          <span className="inline-flex items-center gap-2.5">
             Built by{' '}
             <a
               href={AUTHOR_URL}
@@ -71,6 +72,24 @@ export function SiteFooter() {
               className="text-on-quiet/60 hover:text-lime"
             >
               {AUTHOR}
+            </a>
+            <a
+              href={AUTHOR_X_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${AUTHOR} on X`}
+              className="text-on-quiet/60 hover:text-lime"
+            >
+              <XIcon className="size-3.5" />
+            </a>
+            <a
+              href={AUTHOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${AUTHOR} on LinkedIn`}
+              className="text-on-quiet/60 hover:text-lime"
+            >
+              <LinkedInIcon className="size-4" />
             </a>
           </span>
         </div>

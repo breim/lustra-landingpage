@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-surface text-on-surface">
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-20 sm:px-8 sm:pb-32 sm:pt-28">
         <p className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-on-surface/55">
-          A code-hygiene skill for AI coding agents
+          An engineering skill for AI coding harnesses
         </p>
 
         <h1 className="mt-7 max-w-[18ch] font-display text-[clamp(3.25rem,9vw,8rem)] font-extrabold leading-[0.92] tracking-[-0.03em]">
@@ -32,7 +32,7 @@ export function Hero() {
         </div>
 
         <p className="mt-8 font-mono text-sm text-on-surface/55">
-          1 skill. 15 commands. From first commit to technical due diligence.
+          1 skill. 18 commands. From first commit to technical due diligence.
         </p>
       </div>
     </section>

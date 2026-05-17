@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CommandCopy } from '@/components/command-copy'
+import { HarnessMonogram } from '@/components/icons'
 import { CLIENTS } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -89,9 +90,12 @@ export default function InstallPage() {
               {CLIENTS.map(c => (
                 <li
                   key={c.name}
-                  className="flex items-baseline justify-between gap-4 py-4"
+                  className="flex items-center justify-between gap-4 py-4"
                 >
-                  <span className="text-base font-semibold">{c.name}</span>
+                  <span className="flex items-center gap-3">
+                    <HarnessMonogram name={c.name} />
+                    <span className="text-base font-semibold">{c.name}</span>
+                  </span>
                   <code className="font-mono text-sm text-on-quiet/55">
                     {c.configDir}
                   </code>
@@ -106,7 +110,7 @@ export default function InstallPage() {
             href="/commands"
             className="inline-flex items-center gap-2 text-base font-semibold text-lime hover:underline"
           >
-            See all 15 commands &rarr;
+            See all 18 commands &rarr;
           </Link>
         </div>
       </div>

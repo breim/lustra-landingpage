@@ -9,7 +9,7 @@ export function CommandsOverview() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-lime/75">
-              The 15 commands
+              The 18 commands
             </p>
             <h2 className="mt-5 font-display text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">
               Each one wraps real tooling.

@@ -1,11 +1,12 @@
-import { fetchSkillMarkdown } from '@/lib/github-skill'
+import { buildSkillArchive } from '@/lib/github-skill'
 
 export async function GET() {
   try {
-    const markdown = await fetchSkillMarkdown()
-    return new Response(markdown, {
+    const archive = await buildSkillArchive()
+    return new Response(archive as BodyInit, {
       headers: {
-        'Content-Type': 'text/markdown; charset=utf-8',
+        'Content-Type': 'application/zip',
+        'Content-Disposition': 'attachment; filename="lustra-skill.zip"',
         'Cache-Control': 'public, max-age=3600',
         'Access-Control-Allow-Origin': '*'
       }
